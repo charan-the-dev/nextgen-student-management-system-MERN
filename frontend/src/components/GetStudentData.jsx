@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
 import axios from 'axios';
-import { useState } from 'react'
-
+import { useState } from 'react';
 
 function Getstudentdata() {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([{ stdname: '', stdemail: '', stdage: '' }])
 
     const fetchData = async () => {
 
         try {
-            const { data: response } = await axios.get('http://localhost:3000/getstudentdata');
+            const { data: response } = await axios.get(`${import.meta.env.VITE_STUDENT_DATA_FETCH_URL}/getstudentdata`);
             setData(response);
+
         } catch (error) {
             console.error(error.message);
         }

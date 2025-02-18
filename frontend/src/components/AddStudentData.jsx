@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios';
-import { useState } from 'react'
+import { useState } from 'react';
 
 function AddStudentdata() {
   const [stdname, setname] = useState();
@@ -11,7 +11,7 @@ function AddStudentdata() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/poststudentdata',
+      const response = await axios.post(`${import.meta.env.VITE_STUDENT_DATA_FETCH_URL}/poststudentdata`,
         {
           stdname,
           stdemail,
